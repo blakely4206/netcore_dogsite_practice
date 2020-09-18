@@ -1,0 +1,26 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+<script>
+    function enable() {        
+        if (document.getElementById("img_input").files.length != "") {
+            document.getElementById("btn_submit").disabled = false;
+        }
+        else {
+                document.getElementById("btn_submit").disabled = true;
+        }
+    }
+</script>
+
+<div class="text-center">
+    <h1>What kind of Dog is this??</h1>
+</div>
+<div>
+    <form method="post" enctype="multipart/form-data" asp-controller="Image" asp-action="Index">      
+                <p>Upload a Picture:</p>
+                <input type="file" id="img_input" name="files" onchange="enable()" accept=".jpg" multiple />       
+                <div>
+                    <input id="btn_submit" type="submit"  value="Upload" disabled />
+                </div> 
+    </form>
+</div>
